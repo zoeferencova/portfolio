@@ -2,15 +2,15 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { SmallButton } from '../components';
+import { SmallButton } from '.';
 
 function ProjectCard({ project }) {
     return (
-        <Link href={project.link} className='flex justify-start col:justify-between items-center w-full'>
-            <Image src={project.logo} width='20' height='20' className='w-20 h-20 mr-6' />
+        <Link href={`/?page=${project.slug}`} as={`/${project.slug}`} className='flex justify-start col:justify-between items-center w-full'>
+            <Image src={project.logo} width='20' height='20' className='w-16 h-16 mob:w-20 mob:h-20 mr-4 mob:mr-6' />
             <div>
-                <h2 className='mb-2'>{project.name}</h2>
-                <p className='text-sm lg:text-base text-gray-400'>{project.description}</p>
+                <h2 className='mb-1 mob:mb-1 mob:text-base text-[15px]'>{project.name}</h2>
+                <p className='text-[13px] mob:text-sm lg:text-[15px] text-gray-400'>{project.description}</p>
             </div>
             <SmallButton text='View' />
         </Link>

@@ -29,3 +29,7 @@ select,
 textarea {
   @extend %smooth-fonts !optional;
 }
+
+.header {
+  -webkit-font-smoothing: antialiased;
+}
