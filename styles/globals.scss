@@ -33,3 +33,38 @@ textarea {
 .header {
   -webkit-font-smoothing: antialiased;
 }
+
+.ReactModal__Overlay {
+  transition: background-color 100ms ease-in-out;
+  transition-timing-function: ease;
+  background-color: rgba(210, 214, 216, 0) !important;
+  backdrop-filter: blur(0px);
+}
+
+.ReactModal__Overlay--after-open {
+  background-color: rgba(210, 214, 216, 0.25) !important;
+  backdrop-filter: blur(1.5px);
+}
+
+.ReactModal__Overlay--before-close {
+  background-color: rgba(210, 214, 216, 0) !important;
+  backdrop-filter: blur(0px);
+}
+
+.ReactModal__Content {
+  transform: translateY(100%);
+  transition: transform 400ms ease-in-out;
+  transition-timing-function: ease;
+  opacity: 1 !important;
+  z-index: 1000;
+}
+
+.ReactModal__Content--after-open {
+  transform: translateY(0);
+  opacity: 1 !important;
+}
+
+.ReactModal__Content--before-close {
+  transform: translateY(100%);
+  opacity: 1 !important;
+}
