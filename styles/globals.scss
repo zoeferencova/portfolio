@@ -57,6 +57,16 @@ textarea {
   transition-timing-function: ease;
   opacity: 1 !important;
   z-index: 1000;
+  margin-left: 10%;
+  margin-right: 10%;
+  bottom: 0% !important;
+  border: 1px solid #e0e0e0 !important;
+  border-bottom: none !important;
+  border-top-left-radius: 15px !important;
+  border-top-right-radius: 15px !important;
+  border-bottom-left-radius: 0px !important;
+  border-bottom-right-radius: 0px !important;
+  padding: 40px !important;
 }
 
 .ReactModal__Content--after-open {
@@ -67,4 +77,13 @@ textarea {
 .ReactModal__Content--before-close {
   transform: translateY(100%);
   opacity: 1 !important;
+}
+
+@media only screen and (max-width: '934px') {
+  .ReactModal__Content {
+    margin: 7% 0% 0% 0%;
+    inset: 0px !important;
+    width: 100%;
+    padding: 20px !important;
+  }
 }

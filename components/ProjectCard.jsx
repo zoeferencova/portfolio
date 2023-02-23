@@ -12,7 +12,7 @@ function ProjectCard({ project }) {
                 <h2 className='mb-1 mob:mb-1 mob:text-base text-[15px]'>{project.name}</h2>
                 <p className='text-[13px] mob:text-sm lg:text-[15px] text-gray-400'>{project.description}</p>
             </div>
-            <SmallButton text='View' />
+            <SmallButton text='View' extraClasses='col:ml-2 lg:ml-4 ml-auto' />
         </Link>
     );
 }

@@ -2,12 +2,14 @@ import Head from 'next/head'
 import { ProjectCard } from '../components'
 import { AboutInfo, Resume, ProjectInfo } from '../components';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 import Modal from 'react-modal';
 import React, { useState, useEffect } from 'react';
 
 Modal.setAppElement('#__next');
 
 import logo from '../images/logo-placeholder.png';
+import close from '../images/close.svg';
 
 const projects = [
   {
@@ -56,19 +58,6 @@ const projects = [
   },
 ]
 
-const customStyles = {
-  content: {
-    bottom: '0%',
-    top: '5%',
-    marginRight: '10%',
-    marginLeft: '10%',
-    marginBottom: '0%',
-    borderTopLeftRadius: '15px',
-    borderTopRightRadius: '15px',
-    borderColor: '#E0E0E0',
-    opacity: '100%'
-  }
-}
 
 export default function Home() {
   const router = useRouter();
@@ -103,7 +92,8 @@ export default function Home() {
         <div className='grid grid-cols-1 col:grid-cols-2 gap-x-10 lg:gap-x-14 gap-y-10 mt-16 mob:mt-20'>
           {projects.map((project) => (<ProjectCard project={project} key={project.id} />))}
         </div>
-        <Modal style={customStyles} closeTimeoutMS={400} isOpen={modalIsOpen} onRequestClose={() => closeModal()}>
+        <Modal closeTimeoutMS={400} isOpen={modalIsOpen} onRequestClose={() => closeModal()} style={router.query.page === 'about' ? { content: { marginTop: '17%' } } : { content: { marginTop: '1%' } }}>
+          <button onClick={() => closeModal()} className='float-right'><Image src={close} className='w-7 h-7 p-1 mr-0 ml-auto bg-slate-100 rounded-3xl' /></button>
           {router.query.page === 'resume' && <Resume />}
           {router.query.page === 'about' && <AboutInfo />}
           {router.asPath.split('/')[1] === 'project' && <ProjectInfo project={projects.find(project => project.slug === router.query.page)} />}

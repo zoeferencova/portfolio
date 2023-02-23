@@ -12,6 +12,9 @@ module.exports = {
         'col': '934px',
         'mob': '484px'
       },
+      fontSize: {
+        'md': '1.06rem'
+      }
     },
   },
   plugins: [

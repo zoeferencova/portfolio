@@ -5,3 +5,4 @@ export { default as SmallButton } from './SmallButton';
 export { default as AboutInfo } from './AboutInfo';
 export { default as Resume } from './Resume';
 export { default as ProjectInfo } from './ProjectInfo';
+export { default as PageHeader } from './PageHeader';
