@@ -35,23 +35,31 @@ textarea {
 }
 
 .ReactModal__Overlay {
-  transition: background-color 100ms ease-in-out;
+  transition: background-color 400ms ease-in-out;
   transition-timing-function: ease;
   background-color: rgba(210, 214, 216, 0) !important;
   backdrop-filter: blur(0px);
+  position: 'fixed';
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  inset: 0;
 }
 
 .ReactModal__Overlay--after-open {
   background-color: rgba(210, 214, 216, 0.25) !important;
   backdrop-filter: blur(1.5px);
+  transition: all 400ms ease-in-out;
 }
 
 .ReactModal__Overlay--before-close {
   background-color: rgba(210, 214, 216, 0) !important;
   backdrop-filter: blur(0px);
+  transition: all 400ms ease-in-out;
 }
 
-.ReactModal__Content {
+.ReactModal__Content:not(#contact-modal) {
   transform: translateY(100%);
   transition: transform 400ms ease-in-out;
   transition-timing-function: ease;
@@ -60,7 +68,7 @@ textarea {
   margin-left: 10%;
   margin-right: 10%;
   bottom: 0% !important;
-  border: 1px solid #e0e0e0 !important;
+  border: 1px solid #eaeaea !important;
   border-bottom: none !important;
   border-top-left-radius: 15px !important;
   border-top-right-radius: 15px !important;
@@ -69,21 +77,105 @@ textarea {
   padding: 40px !important;
 }
 
-.ReactModal__Content--after-open {
+.ReactModal__Content--after-open:not(#contact-modal) {
   transform: translateY(0);
   opacity: 1 !important;
 }
 
-.ReactModal__Content--before-close {
+.ReactModal__Content--before-close:not(#contact-modal) {
   transform: translateY(100%);
   opacity: 1 !important;
 }
 
 @media only screen and (max-width: '934px') {
-  .ReactModal__Content {
-    margin: 7% 0% 0% 0%;
+  .ReactModal__Content:not(#contact-modal) {
+    margin: 7% 0% 0% 0% !important;
     inset: 0px !important;
     width: 100%;
     padding: 20px !important;
+  }
+
+  .ReactModal__Content--after-open {
+    inset: 0px !important;
+
+  }
+}
+
+.contact-overlay {
+  position: fixed;
+  top: 9%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0) !important;
+  backdrop-filter: blur(0px);
+  transition: opacity 200ms ease-in-out;
+}
+
+#contact-modal {
+  display: flex;
+  height: fit-content;
+  width: fit-content;
+  text-align: center;
+  margin-right: 60px !important;
+  margin-left: auto !important;
+  margin-top: -15px;
+  transition: none;
+  padding: 14px 22px 10px 22px !important;
+  opacity: 0;
+  overflow: hidden !important;
+  border-radius: 15px !important;
+  border: 0px !important;
+  background-color: rgba(246, 246, 250, 0.9) !important;
+}
+
+#contact-modal.ReactModal__Content--after-open {
+  transition: opacity 200ms ease-in-out;
+  opacity: 1 !important;
+}
+
+#contact-modal.ReactModal__Content--before-close {
+  transition: opacity 200ms ease-in-out;
+  opacity: 0 !important;
+}
+
+@media only screen and (max-width: '934px') {
+  #contact-modal {
+    margin-right: 40px !important;
+  }
+}
+
+@media only screen and (max-width: '484px') {
+  #contact-modal {
+    position: fixed !important;
+    bottom: 0 !important;
+    margin: 0 !important;
+    top: auto !important;
+    background-color: rgba(224, 224, 228, 0.2) !important;
+  }
+
+  .contact-overlay {
+    height: 106px !important;
+    width: 253px !important;
+    background-color: rgba(255, 255, 255, 0) !important;
+    backdrop-filter: blur(20px);
+    backdrop-filter: hue-rotate(90deg) blur(10px);
+    top: auto;
+    bottom: 5%;
+    margin: 0 auto;
+    border: 1px solid #f5f5f5 !important;
+    border-radius: 15px !important;
+    transition: all 200ms ease-in-out;
+  }
+
+  .contact-overlay-open {
+    opacity: 1;
+    transition: all 200ms ease-in-out;
+
+  }
+
+  .contact-overlay-close {
+    opacity: 0;
+    transition: all 200ms ease-in-out;
   }
 }

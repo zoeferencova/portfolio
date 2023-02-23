@@ -75,7 +75,7 @@ export default function Home() {
     setIsOpen(false)
     setTimeout(() => {
       router.push("/")
-    }, 400);
+    }, 200);
   }
 
 
