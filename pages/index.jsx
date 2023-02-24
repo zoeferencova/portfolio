@@ -5,61 +5,15 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Modal from 'react-modal';
 import React, { useState, useEffect } from 'react';
+import { getProjects } from '../services';
+import close from '../images/close.svg';
 
 Modal.setAppElement('#__next');
 
-import logo from '../images/logo-placeholder.png';
-import close from '../images/close.svg';
 
-const projects = [
-  {
-    id: 1,
-    name: 'Coordinator',
-    slug: 'coordinator',
-    description: 'Lead management tool, created for my former coordinator job.',
-    logo: logo,
-    technologies: ['React', 'Node.js', 'PostgreSQL'],
-    content: 'Content',
-    link: 'https://www.google.com',
-    images: ['../images/project-img-placeholder.png']
-  },
-  {
-    id: 2,
-    name: 'Tada Blog',
-    slug: 'blog',
-    description: 'Personal data visualization blog, built from scratch.',
-    logo: logo,
-    technologies: ['React', 'Node.js', 'PostgreSQL'],
-    content: 'Content',
-    link: 'https://www.google.com',
-    images: ['../images/project-img-placeholder.png']
-  },
-  {
-    id: 3,
-    name: 'Comm-unity',
-    slug: 'community',
-    description: 'Community platform for sharing resources and services.',
-    logo: logo,
-    technologies: ['React', 'Node.js', 'PostgreSQL'],
-    content: 'Content',
-    link: 'https://www.google.com',
-    images: ['../images/project-img-placeholder.png']
-  },
-  {
-    id: 4,
-    name: 'Visualizing Football Migration',
-    slug: 'football-viz',
-    description: 'Data visualization project about player migration in football.',
-    logo: logo,
-    technologies: ['React', 'Node.js', 'PostgreSQL'],
-    content: 'Content',
-    link: 'https://www.google.com',
-    images: ['../images/project-img-placeholder.png']
-  },
-]
+export default function Home({ projects }) {
+  console.log(projects)
 
-
-export default function Home() {
   const router = useRouter();
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [closing, setClosing] = React.useState(false);
@@ -102,3 +56,11 @@ export default function Home() {
     </>
   )
 }
+
+export async function getStaticProps() {
+  const projects = (await getProjects()) || [];
+  return {
+    props: { projects },
+  };
+}
+
