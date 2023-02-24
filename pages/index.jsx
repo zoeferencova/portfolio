@@ -1,23 +1,18 @@
-import Head from 'next/head'
-import { ProjectCard } from '../components'
-import { AboutInfo, Resume, ProjectInfo } from '../components';
-import { useRouter } from 'next/router';
-import Image from 'next/image';
-import Modal from 'react-modal';
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Head from 'next/head'
+import Modal from 'react-modal';
+
+import { AboutInfo, Resume, ProjectInfo, ProjectCard } from '../components';
 import { getProjects } from '../services';
-import close from '../images/close.svg';
 
 Modal.setAppElement('#__next');
 
-
 export default function Home({ projects }) {
-  console.log(projects)
-
-  const router = useRouter();
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const [closing, setClosing] = React.useState(false);
 
+  const router = useRouter();
 
   useEffect(() => {
     setClosing(false)
@@ -31,7 +26,6 @@ export default function Home({ projects }) {
       router.push("/")
     }, 200);
   }
-
 
   return (
     <>
@@ -47,7 +41,7 @@ export default function Home({ projects }) {
           {projects.map((project) => (<ProjectCard project={project} key={project.id} />))}
         </div>
         <Modal closeTimeoutMS={400} isOpen={modalIsOpen} onRequestClose={() => closeModal()} style={router.query.page === 'about' ? { content: { marginTop: '17%' } } : { content: { marginTop: '1%' } }}>
-          <button onClick={() => closeModal()} className='float-right'><Image src={close} className='w-7 h-7 p-1 mr-0 ml-auto bg-slate-100 rounded-3xl' /></button>
+          <button onClick={() => closeModal()} className='float-right'><img src='/close.svg' className='w-7 h-7 p-1 mr-0 ml-auto bg-slate-100 rounded-3xl' /></button>
           {router.query.page === 'resume' && <Resume />}
           {router.query.page === 'about' && <AboutInfo />}
           {router.asPath.split('/')[1] === 'project' && <ProjectInfo project={projects.find(project => project.slug === router.query.page)} />}

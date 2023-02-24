@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useRouter } from "next/router";
 import Modal from 'react-modal';
 
 Modal.setAppElement('#__next');
-
-import github from '../images/contact-github.png'
-import linkedin from '../images/contact-linkedin.png'
-import email from '../images/contact-email.png'
 
 function Header() {
     const [contactOpen, setContactOpen] = useState(false)
@@ -39,15 +34,15 @@ function Header() {
             </ul>
             <Modal id='contact-modal' overlayClassName={{ base: 'contact-overlay', afterOpen: 'contact-overlay-open', beforeClose: 'contact-overlay-close' }} onRequestClose={() => setContactOpen(false)} isOpen={contactOpen} closeTimeoutMS={200}>
                 <Link href='email' className='inline-block mr-5'>
-                    <Image src={email} className='w-12 h-12' />
+                    <img src='/contact-email.png' className='w-12 h-12' />
                     <p className='text-[0.84rem] mt-1'>Email</p>
                 </Link>
                 <Link href='linkedin' className='inline-block mr-5'>
-                    <Image src={linkedin} className='w-12 h-12' />
+                    <img src='/contact-linkedin.png' className='w-12 h-12' />
                     <p className='text-[0.84rem] mt-1'>LinkedIn</p>
                 </Link>
                 <Link href='github' className='inline-block'>
-                    <Image src={github} className='w-12 h-12' />
+                    <img src='/contact-github.png' className='w-12 h-12' />
                     <p className='text-[0.84rem] mt-1'>Github</p>
                 </Link>
             </Modal>
