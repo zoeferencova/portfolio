@@ -2,7 +2,7 @@ import React from 'react';
 
 function PageHeader({ title, subtitle, buttons, logo }) {
     return (
-        <div>
+        <div className='pr-[40px]'>
             <div className='flex items-center mb-8'>
                 <img className='h-28 w-28 mr-8' src={logo} />
                 <div className=''>

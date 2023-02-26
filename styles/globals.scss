@@ -62,7 +62,6 @@ textarea {
 .ReactModal__Content:not(#contact-modal) {
   transform: translateY(100%);
   transition: transform 400ms ease-in-out;
-  transition-timing-function: ease;
   opacity: 1 !important;
   z-index: 1000;
   margin-left: 10%;
@@ -74,7 +73,8 @@ textarea {
   border-top-right-radius: 15px !important;
   border-bottom-left-radius: 0px !important;
   border-bottom-right-radius: 0px !important;
-  padding: 40px !important;
+  padding: 0px !important;
+  overflow: hidden !important;
 }
 
 .ReactModal__Content--after-open:not(#contact-modal) {
@@ -92,7 +92,6 @@ textarea {
     margin: 7% 0% 0% 0% !important;
     inset: 0px !important;
     width: 100%;
-    padding: 20px !important;
   }
 
   .ReactModal__Content--after-open {
@@ -178,4 +177,30 @@ textarea {
     opacity: 0;
     transition: all 200ms ease-in-out;
   }
+}
+
+// .slideshow-container {
+//   transform: translateX(50%)
+// }
+
+.slideshow-container {
+  animation: slideIn 600ms ease;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(70%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.simplebar-track.simplebar-horizontal {
+  display: none;
+}
+
+.simplebar-content {
+  overflow-x: hidden;
 }

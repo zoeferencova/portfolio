@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Head from 'next/head'
 import Modal from 'react-modal';
+import SimpleBarReact from 'simplebar-react';
 
 import { AboutInfo, Resume, ProjectInfo, ProjectCard } from '../components';
 import { getProjects } from '../services';
+
+import 'simplebar-react/dist/simplebar.min.css';
 
 Modal.setAppElement('#__next');
 
@@ -29,6 +32,7 @@ export default function Home({ projects }) {
 
   return (
     <>
+
       <Head>
         <title>Zoe Ferencova</title>
         <meta name="description" content="Portfolio for Zoe Ferencova" />
@@ -41,10 +45,12 @@ export default function Home({ projects }) {
           {projects.map((project) => (<ProjectCard project={project} key={project.id} />))}
         </div>
         <Modal closeTimeoutMS={400} isOpen={modalIsOpen} onRequestClose={() => closeModal()} style={router.query.page === 'about' ? { content: { marginTop: '17%' } } : { content: { marginTop: '1%' } }}>
-          <button onClick={() => closeModal()} className='float-right'><img src='/close.svg' className='w-7 h-7 p-1 mr-0 ml-auto bg-slate-100 rounded-3xl' /></button>
-          {router.query.page === 'resume' && <Resume />}
-          {router.query.page === 'about' && <AboutInfo />}
-          {router.asPath.split('/')[1] === 'project' && <ProjectInfo project={projects.find(project => project.slug === router.query.page)} />}
+          <SimpleBarReact style={{ maxHeight: '100%' }}>
+            <button onClick={() => closeModal()} className='float-right pt-[40px] pr-[40px]'><img src='/close.svg' className='w-7 h-7 p-1 mr-0 ml-auto bg-slate-100 rounded-3xl' /></button>
+            {router.query.page === 'resume' && <Resume />}
+            {router.query.page === 'about' && <AboutInfo />}
+            {router.asPath.split('/')[1] === 'project' && <ProjectInfo project={projects.find(project => project.slug === router.query.page)} />}
+          </SimpleBarReact>
         </Modal>
       </main>
     </>
