@@ -4,9 +4,9 @@ import { Header } from '.'
 
 function Layout({ children }) {
     return (
-        <div className='h-screen'>
+        <div className=''>
             <Header />
-            <div className='h-full mt-24 mob:mt-48 col:mt-0 col:pt-14 flex flex-col justify-start col:justify-center mob:px-10 px-4'>
+            <div className='h-full flex flex-col justify-start col:justify-center col:items-center mob:px-10 px-4 pb-10'>
                 {children}
             </div>
         </div>

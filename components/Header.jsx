@@ -13,8 +13,11 @@ function Header() {
 
     const linkStyle = 'font-medium px-4 py-[5px] bg-gray-100 rounded-3xl tracking-[0.01rem] mob:bg-white mob:p-0 mob:mr-10 mob:text-gray-400 transition ease-in duration-200'
     const selectedStyle = 'mob:text-gray-900 transition ease-in duration-200'
+    const contactStyle = 'flex justify-between w-full items-center px-5 py-[7px] text-[0.87rem]'
+    const contactImgStyle = 'w-4 h-4'
+
     return (
-        <div className='h-0 header'>
+        <div className='h-16 header'>
             <ul className='flex justify-between mob:justify-end col:h-36 px-4 mob:px-0 h-16 items-center mob:items-center col:pr-16 mob:text-base text-[15px]'>
                 <li className={`${linkStyle} ${(asPath === '/' || asPath.split('/')[1] === 'project') && !contactOpen && selectedStyle} hidden mob:inline-block`} onClick={() => setContactOpen(false)}>
                     <Link href='/'>Work</Link>
@@ -33,17 +36,17 @@ function Header() {
                 </li>
             </ul>
             <Modal id='contact-modal' overlayClassName={{ base: 'contact-overlay', afterOpen: 'contact-overlay-open', beforeClose: 'contact-overlay-close' }} onRequestClose={() => setContactOpen(false)} isOpen={contactOpen} closeTimeoutMS={200}>
-                <Link href='email' className='inline-block mr-5'>
-                    <img src='/contact-email.png' className='w-12 h-12' />
-                    <p className='text-[0.84rem] mt-1'>Email</p>
+                <Link href='email' className={`${contactStyle} mr-5 border-b border-gray-200`}>
+                    <span>Email</span>
+                    <img src='/email-clear.svg' className={contactImgStyle} />
                 </Link>
-                <Link href='linkedin' className='inline-block mr-5'>
-                    <img src='/contact-linkedin.png' className='w-12 h-12' />
-                    <p className='text-[0.84rem] mt-1'>LinkedIn</p>
+                <Link href='linkedin' className={`${contactStyle} mr-5 border-b border-gray-200`}>
+                    <span>LinkedIn</span>
+                    <img src='/linkedin.svg' className={contactImgStyle} />
                 </Link>
-                <Link href='github' className='inline-block'>
-                    <img src='/contact-github.png' className='w-12 h-12' />
-                    <p className='text-[0.84rem] mt-1'>Github</p>
+                <Link href='github' className={`${contactStyle}`}>
+                    <span>Github</span>
+                    <img src='/github.svg' className={contactImgStyle} />
                 </Link>
             </Modal>
 

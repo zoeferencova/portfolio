@@ -13,7 +13,8 @@ module.exports = {
         'mob': '484px'
       },
       fontSize: {
-        'md': '1.06rem'
+        'md': '1.06rem',
+        'mob': '0.96rem'
       }
     },
   },

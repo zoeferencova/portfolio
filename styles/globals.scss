@@ -101,8 +101,8 @@ textarea {
 }
 
 .contact-overlay {
-  position: fixed;
-  top: 9%;
+  position: absolute;
+  top: 58px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -113,17 +113,17 @@ textarea {
 
 #contact-modal {
   display: flex;
+  flex-direction: column;
   height: fit-content;
-  width: fit-content;
+  width: 155px;
   text-align: center;
   margin-right: 60px !important;
   margin-left: auto !important;
-  margin-top: -15px;
   transition: none;
-  padding: 14px 22px 10px 22px !important;
+  padding: 2px 0px !important;
   opacity: 0;
   overflow: hidden !important;
-  border-radius: 15px !important;
+  border-radius: 8px !important;
   border: 0px !important;
   background-color: rgba(246, 246, 250, 0.9) !important;
 }
@@ -140,48 +140,18 @@ textarea {
 
 @media only screen and (max-width: '934px') {
   #contact-modal {
-    margin-right: 40px !important;
+    margin-right: 30px !important;
   }
 }
 
 @media only screen and (max-width: '484px') {
   #contact-modal {
-    position: fixed !important;
-    bottom: 0 !important;
-    margin: 0 !important;
-    top: auto !important;
-    background-color: rgba(224, 224, 228, 0.2) !important;
-  }
-
-  .contact-overlay {
-    height: 97px !important;
-    width: 232px !important;
-    background-color: rgba(255, 255, 255, 0) !important;
-    backdrop-filter: blur(20px);
-    backdrop-filter: hue-rotate(90deg) blur(10px);
-    top: auto;
-    bottom: 5%;
-    margin: 0 auto;
-    border: 1px solid #f5f5f5 !important;
-    border-radius: 15px !important;
-    transition: all 200ms ease-in-out;
-  }
-
-  .contact-overlay-open {
-    opacity: 1;
-    transition: all 200ms ease-in-out;
-
-  }
-
-  .contact-overlay-close {
-    opacity: 0;
-    transition: all 200ms ease-in-out;
+    margin-right: 15px !important;
+    margin-top: 5px !important;
+    background-color: rgba(246, 246, 250, 1) !important;
   }
 }
 
-// .slideshow-container {
-//   transform: translateX(50%)
-// }
 
 .slideshow-container {
   animation: slideIn 600ms ease;

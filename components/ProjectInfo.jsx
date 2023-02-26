@@ -6,7 +6,7 @@ import '@splidejs/react-splide/css';
 
 const slideshowOptions = {
     gap: '1.5rem',
-    fixedWidth: '68%',
+    fixedWidth: '65%',
     perPage: 1,
     loop: false,
     drag: 'free',
@@ -24,12 +24,12 @@ const slideshowOptions = {
 }
 
 function ProjectInfo({ project }) {
-    const buttons = project.links.map(link => <Button key={link.id} text={link.name} icon={link.icon.url} link={link.url} extraClasses='inline-block' dark={link.name === 'Visit'} />);
-    const sectionLabelStyles = 'text-sm text-gray-400 uppercase tracking-[0.1rem] mt-12'
-    const paragraphStyles = 'my-6'
+    const buttons = project.links.map(link => <Button key={link.id} text={link.name} icon={link.icon.url} link={link.url} extraClasses='inline-block mr-3' dark={link.name === 'Visit'} />);
+    const sectionLabelStyles = 'text-[0.8rem] mob:text-sm text-gray-400 uppercase tracking-[0.07rem] mob:tracking-[0.1rem] mt-10 mob:mt-12'
+    const paragraphStyles = 'my-4 mob:my-6 text-mob mob:text-base'
 
     return (
-        <div className='pt-[40px] pl-[40px]'>
+        <div className={`${!project.page && 'pt-6 pl-6 mob:pt-10 mob:pl-10'}`}>
             <PageHeader title={project.title} subtitle={project.subtitle} buttons={buttons} logo={project.logo.url} />
             <div className='my-9 hover:cursor-grab slideshow-container'>
                 <Splide options={slideshowOptions}>
@@ -38,20 +38,19 @@ function ProjectInfo({ project }) {
                     ))}
                 </Splide>
             </div>
-            <div className='pr-[40px]'>
+            <div className='pr-6 mob:pr-10'>
                 <h3 className={sectionLabelStyles}>About</h3>
                 <p className={paragraphStyles}>{project.description.text}</p>
                 <h3 className={sectionLabelStyles}>Technology</h3>
-                <ul className='flex my-8 flex-wrap'>
+                <ul className='grid grid-cols-2 mob:flex my-5 mob:my-8 mob:flex-wrap'>
                     {project.technologies.map((tech) => (
-                        <li className='flex mr-8 mb-6 items-center'>
+                        <li key={tech.id} className='flex mr-3 mob:mr-8 mb-4 mob:mb-6 items-center'>
                             <img src={tech.icon.url} className='w-8 h-8 mr-3' />
-                            <span>{tech.name}</span>
+                            <span className='text-sm mob:text-base'>{tech.name}</span>
                         </li>
                     ))}
                 </ul>
             </div>
-
         </div >
     );
 }
