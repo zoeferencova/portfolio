@@ -1,8 +1,8 @@
 import React from 'react';
-import { PageHeader, SmallButton } from '.';
+import { PageHeader, Button } from '.';
 
-const linkedInButton = <SmallButton text='LinkedIn' icon={'/linkedin.svg'} link='https://www.linkedin.com/in/zoeferencova/' extraClasses='inline-block mr-3' />
-const githubButton = <SmallButton text='Github' icon={'/github.svg'} link='https://github.com/zoeferencova' extraClasses='inline-block' />
+const linkedInButton = <Button text='LinkedIn' icon={'/linkedin.svg'} link='https://www.linkedin.com/in/zoeferencova/' extraClasses='inline-block' />
+const githubButton = <Button text='Github' icon={'/github.svg'} link='https://github.com/zoeferencova' extraClasses='inline-block' />
 
 
 function AboutInfo() {

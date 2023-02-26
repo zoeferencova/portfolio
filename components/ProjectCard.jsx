@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { SmallButton } from '.';
+import { Button } from '.';
 
 function ProjectCard({ project }) {
     return (
@@ -10,7 +10,7 @@ function ProjectCard({ project }) {
                 <h2 className='mb-1 mob:mb-1 mob:text-base text-[15px]'>{project.title}</h2>
                 <p className='text-[13px] mob:text-sm lg:text-[15px] text-gray-400'>{project.subtitle}</p>
             </div>
-            <SmallButton text='View' extraClasses='col:ml-2 lg:ml-4 ml-auto' link={`/?page=${project.slug}`} asLink={`/project/${project.slug}`} />
+            <Button text='View' extraClasses='col:ml-2 lg:ml-4 ml-auto' link={`/?page=${project.slug}`} asLink={`/project/${project.slug}`} />
         </div>
     );
 }
