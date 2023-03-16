@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '.'
 
 export default function ProjectCategorySelector({ projectCategory, setProjectCategory }) {
-    const linkStyle = 'text-[1.1rem] tracking-[0.02rem] mr-5 last:mr-0 text-gray-400 transition ease-in duration-100 cursor-pointer'
+    const linkStyle = 'text-[1.1rem] tracking-[0.03rem] mr-5 last:mr-0 text-gray-400 transition ease-in duration-100 cursor-pointer'
     const selectedStyle = 'text-gray-900 transition ease-in duration-100 font-medium'
 
     return (

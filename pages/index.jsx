@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ProjectGrid, VisualizationGrid, Headline, Header, Drawer, ProjectCategorySelector } from '../components';
-import { getProjects, getVisualizations } from '../services';
+import { getProjects, getTopVisualizations } from '../services';
 
 export default function Home({ projects, visualizations }) {
   const [drawerOpen, setDrawerOpen] = useState(false)
@@ -39,7 +39,7 @@ export default function Home({ projects, visualizations }) {
 
 export async function getStaticProps() {
   const projects = (await getProjects()) || [];
-  const visualizations = (await getVisualizations()) || [];
+  const visualizations = (await getTopVisualizations()) || [];
   return {
     props: { projects, visualizations },
   };

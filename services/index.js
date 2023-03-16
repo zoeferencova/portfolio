@@ -43,7 +43,7 @@ export const getProjects = async () => {
     return results.projects
 }
 
-export const getVisualizations = async () => {
+export const getTopVisualizations = async () => {
     const query = gql`
         query Visualizations {
             visualizations(orderBy: title_DESC, where: { interactive: true }) {
@@ -54,6 +54,26 @@ export const getVisualizations = async () => {
                 thumbnail {
                     url
                 }
+            }
+        }
+    `
+
+    const results = await request(graphqlAPI, query)
+    return results.visualizations
+}
+
+export const getAllVisualizations = async () => {
+    const query = gql`
+        query Visualizations {
+            visualizations(orderBy: title_DESC) {
+                id
+                title
+                description
+                url
+                thumbnail {
+                    url
+                }
+                interactive
             }
         }
     `
