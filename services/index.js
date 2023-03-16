@@ -43,44 +43,21 @@ export const getProjects = async () => {
     return results.projects
 }
 
-export const getProjectDetails = async (slug) => {
+export const getVisualizations = async () => {
     const query = gql`
-        query ProjectDetails($slug: String!) {
-            project(where: { slug: $slug }) {
-            description {
-                text
-            }
-            id
-            links {
+        query Visualizations {
+            visualizations(orderBy: title_DESC, where: { interactive: true }) {
                 id
-                name
+                title
+                description
                 url
-                icon {
+                thumbnail {
                     url
                 }
-            }
-            logo {
-                url
-            }
-            slug
-            subtitle
-            title
-            technologies {
-                id
-                name
-                icon {
-                url
-                }
-            }
-            images {
-                id
-                url
-            }
             }
         }
     `
 
-    const results = await request(graphqlAPI, query, { slug })
-    return results.project
+    const results = await request(graphqlAPI, query)
+    return results.visualizations
 }
-

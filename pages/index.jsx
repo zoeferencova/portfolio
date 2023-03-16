@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { ProjectGrid, Headline, Header, Drawer } from '../components';
-import { getProjects } from '../services';
+import { ProjectGrid, VisualizationGrid, Headline, Header, Drawer, ProjectCategorySelector } from '../components';
+import { getProjects, getVisualizations } from '../services';
 
-export default function Home({ projects }) {
+export default function Home({ projects, visualizations }) {
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [drawerContent, setDrawerContent] = useState(null);
+  const [projectCategory, setProjectCategory] = useState('apps');
 
   function closeDrawer() {
     setDrawerOpen(false)
@@ -24,7 +25,11 @@ export default function Home({ projects }) {
       <main className='col:h-[75vh] mt-[7vh] col:mt-0 flex items-center'>
         <div className='max-w-4xl'>
           <Headline />
-          <ProjectGrid projects={projects} openDrawer={openDrawer} />
+          <ProjectCategorySelector setProjectCategory={setProjectCategory} projectCategory={projectCategory} />
+          <div className='min-h-[238px]'>
+            {projectCategory === 'apps' && <ProjectGrid projects={projects} openDrawer={openDrawer} />}
+            {projectCategory === 'visualizations' && <VisualizationGrid visualizations={visualizations} />}
+          </div>
           <Drawer drawerOpen={drawerOpen} closeDrawer={closeDrawer} drawerContent={drawerContent} />
         </div>
       </main>
@@ -34,8 +39,9 @@ export default function Home({ projects }) {
 
 export async function getStaticProps() {
   const projects = (await getProjects()) || [];
+  const visualizations = (await getVisualizations()) || [];
   return {
-    props: { projects },
+    props: { projects, visualizations },
   };
 }
 

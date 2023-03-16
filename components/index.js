@@ -10,3 +10,6 @@ export { default as Headline } from './Headline';
 export { default as ProjectGrid } from './ProjectGrid';
 export { default as Drawer } from './Drawer';
 export { default as ContactModal } from './ContactModal';
+export { default as ProjectCategorySelector } from './ProjectCategorySelector';
+export { default as VisualizationGrid } from './VisualizationGrid';
+export { default as VisualizationCard } from './VisualizationCard';

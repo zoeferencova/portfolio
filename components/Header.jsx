@@ -9,7 +9,7 @@ export default function Header({ drawerContent, openDrawer }) {
     const selectedStyle = 'mob:text-gray-900 transition ease-in duration-200'
 
     return (
-        <div className='header mob:self-end mr-1 col:mr-10'>
+        <div className='header mob:self-end mr-1 col:mr-10 col:mb-[4vh]'>
             <ul className='flex justify-between mob:justify-end col:h-28 px-0 h-20 items-center mob:items-center mob:text-base text-[15px]'>
                 <li className={`${linkStyle} ${(!drawerContent && !contactOpen) && selectedStyle} hidden mob:inline-block`} onClick={() => setContactOpen(false)}>
                     <Link href='/'>Work</Link>
