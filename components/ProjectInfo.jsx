@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, PageHeader } from '.';
+import { Button, DrawerHeader } from '.';
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 
 import '@splidejs/react-splide/css';
@@ -23,22 +23,22 @@ const slideshowOptions = {
     }
 }
 
-function ProjectInfo({ project }) {
+export default function ProjectInfo({ project }) {
     const buttons = project.links.map(link => <Button key={link.id} text={link.name} icon={link.icon.url} link={link.url} extraClasses='inline-block mr-3' dark={link.name === 'Visit'} />);
     const sectionLabelStyles = 'text-[0.8rem] mob:text-sm text-gray-400 uppercase tracking-[0.07rem] mob:tracking-[0.1rem] mt-10 mob:mt-12'
     const paragraphStyles = 'my-4 mob:my-6 text-mob mob:text-base'
 
     return (
-        <div className={`${!project.page && 'pt-6 pl-6 mob:pt-10 mob:pl-10'}`}>
-            <PageHeader title={project.title} subtitle={project.subtitle} buttons={buttons} logo={project.logo.url} />
+        <div className={`${!project.page && 'pt-6 mob:pt-10'}`}>
+            <DrawerHeader title={project.title} subtitle={project.subtitle} buttons={buttons} logo={project.logo.url} />
             <div className='my-9 hover:cursor-grab slideshow-container'>
                 <Splide options={slideshowOptions}>
                     {project.images.map((image) => (
-                        <SplideSlide><img key={image.id} src={image.url} className='rounded-xl mob:rounded-3xl' /></SplideSlide>
+                        <SplideSlide key={image.id}><img src={image.url} className='rounded-xl mob:rounded-3xl' /></SplideSlide>
                     ))}
                 </Splide>
             </div>
-            <div className='pr-6 mob:pr-10'>
+            <div className='px-6 mob:px-10'>
                 <h3 className={sectionLabelStyles}>About</h3>
                 <p className={paragraphStyles}>{project.description.text}</p>
                 <h3 className={sectionLabelStyles}>Technology</h3>
@@ -54,5 +54,3 @@ function ProjectInfo({ project }) {
         </div >
     );
 }
-
-export default ProjectInfo;

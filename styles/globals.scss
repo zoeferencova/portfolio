@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url("https://use.typekit.net/obm4uuk.css");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap');
 
 * {
   box-sizing: border-box;
@@ -17,7 +17,7 @@ body {
 }
 
 body {
-  font-family: 'Neue Haas Unica', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   letter-spacing: 0.006rem;
 }
 
@@ -102,7 +102,7 @@ textarea {
 
 .contact-overlay {
   position: absolute;
-  top: 58px;
+  top: 60px;
   bottom: 0;
   left: 0;
   right: 0;
@@ -117,15 +117,14 @@ textarea {
   height: fit-content;
   width: 155px;
   text-align: center;
-  margin-right: 60px !important;
-  margin-left: auto !important;
+  margin: -15px 40px 0px auto !important;
   transition: none;
   padding: 2px 0px !important;
   opacity: 0;
   overflow: hidden !important;
   border-radius: 8px !important;
   border: 0px !important;
-  background-color: rgba(246, 246, 250, 0.9) !important;
+  background-color: rgba(246, 246, 250) !important;
 }
 
 #contact-modal.ReactModal__Content--after-open {
@@ -140,14 +139,15 @@ textarea {
 
 @media only screen and (max-width: '934px') {
   #contact-modal {
-    margin-right: 30px !important;
+    margin-right: 40px !important;
+    margin-top: 5px !important;
   }
 }
 
 @media only screen and (max-width: '484px') {
   #contact-modal {
     margin-right: 15px !important;
-    margin-top: 5px !important;
+    margin-top: 10px !important;
     background-color: rgba(246, 246, 250, 1) !important;
   }
 }
@@ -155,6 +155,16 @@ textarea {
 
 .slideshow-container {
   animation: slideIn 600ms ease;
+}
+
+.splide__track {
+  padding: 0px 40px !important;
+}
+
+@media only screen and (max-width: '484px') {
+  .splide__track {
+    padding: 0px 25px !important;
+  }
 }
 
 @keyframes slideIn {

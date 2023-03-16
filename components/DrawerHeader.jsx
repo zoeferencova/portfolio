@@ -1,8 +1,8 @@
 import React from 'react';
 
-function PageHeader({ title, subtitle, buttons, logo }) {
+export default function DrawerHeader({ title, subtitle, buttons, logo }) {
     return (
-        <div>
+        <div className='px-6 mob:px-10'>
             <div className='flex items-center mb-8'>
                 <img className='h-[4.7rem] w-[4.7rem] mob:h-24 mob:w-24 mr-5 mob:mr-8' src={logo} />
                 <div className=''>
@@ -16,5 +16,3 @@ function PageHeader({ title, subtitle, buttons, logo }) {
 
     );
 }
-
-export default PageHeader;
