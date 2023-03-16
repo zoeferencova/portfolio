@@ -17,7 +17,7 @@ export default function VisualizationPage({ visualizations }) {
             <h1 className='mt-14 text-3xl'>Visualizations</h1>
             <h2 className={h2Styles}>Interactive</h2>
             <VisualizationGrid visualizations={visualizations.filter(viz => viz.interactive)} />
-            <h2 className={h2Styles}>Static</h2>
+            <h2 className={`${h2Styles} pt-8`}>Static</h2>
             <VisualizationGrid visualizations={visualizations.filter(viz => !viz.interactive)} />
         </div>
     )
