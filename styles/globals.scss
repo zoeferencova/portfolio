@@ -28,10 +28,12 @@ input,
 select,
 textarea {
   @extend %smooth-fonts !optional;
+  -webkit-font-smoothing: antialiased;
 }
 
-.header {
-  -webkit-font-smoothing: antialiased;
+#headline,
+.no-smooth {
+  -webkit-font-smoothing: auto !important;
 }
 
 .ReactModal__Overlay {
