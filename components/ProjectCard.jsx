@@ -9,7 +9,7 @@ export default function ProjectCard({ project, openDrawer }) {
                 <h2 className='no-smooth mb-1 mob:mb-1 mob:text-base text-[15px]'>{project.title}</h2>
                 <p className='text-[13px] mob:text-sm lg:text-[15px] text-gray-400 max-w-[13rem] col:max-w-full'>{project.subtitle}</p>
             </div>
-            <Button text='View' extraClasses='col:ml-2 lg:ml-4 ml-auto' />
+            <Button text='View' onClick={e => e.preventDefault()} extraClasses='col:ml-2 lg:ml-4 ml-auto' />
         </div>
     );
 }
