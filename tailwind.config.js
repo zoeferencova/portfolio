@@ -18,7 +18,7 @@ module.exports = {
         'mob': '0.96rem'
       },
       boxShadow: {
-        'custom': 'rgba(15, 15, 15, 0.1) 0px 2px 4px;'
+        'custom': 'rgba(15, 15, 15, 0.1) 0px 2px 4px'
       }
     },
   },
