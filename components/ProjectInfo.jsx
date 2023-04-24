@@ -24,7 +24,7 @@ const slideshowOptions = {
 }
 
 export default function ProjectInfo({ project }) {
-    const buttons = project.links.map(link => <Button key={link.id} text={link.name} icon={link.icon.url} link={link.url} extraClasses='inline-block mr-3' dark={link.name === 'Visit'} />);
+    const buttons = project.links.map(link => <Button key={link.id} text={link.name} icon={link.icon.url} link={link.url} extraClasses='inline-block mr-2 mob:mr-3' dark={link.name === 'Visit'} />);
     const sectionLabelStyles = 'text-[0.8rem] mob:text-sm text-gray-400 uppercase tracking-[0.07rem] mob:tracking-[0.1rem] mt-10 mob:mt-12'
     const paragraphStyles = 'my-4 mob:my-6 text-mob mob:text-base'
 
@@ -34,7 +34,7 @@ export default function ProjectInfo({ project }) {
             <div className='my-9 hover:cursor-grab slideshow-container'>
                 <Splide options={slideshowOptions}>
                     {project.images.map((image) => (
-                        <SplideSlide key={image.id}><img src={image.url} className='rounded-xl mob:rounded-3xl' /></SplideSlide>
+                        <SplideSlide key={image.id}><img alt={image.alt} src={image.url} className='rounded-xl mob:rounded-3xl' /></SplideSlide>
                     ))}
                 </Splide>
             </div>
@@ -45,7 +45,7 @@ export default function ProjectInfo({ project }) {
                 <ul className='grid grid-cols-2 mob:flex my-5 mob:my-8 mob:flex-wrap'>
                     {project.technologies.map((tech) => (
                         <li key={tech.id} className='flex mr-3 mob:mr-8 mb-4 mob:mb-6 items-center'>
-                            <img src={tech.icon.url} className='w-8 h-8 mr-3' />
+                            <img src={tech.icon.url} className='w-6 h-6 mr-2' />
                             <span className='text-sm mob:text-base'>{tech.name}</span>
                         </li>
                     ))}

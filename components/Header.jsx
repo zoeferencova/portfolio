@@ -17,8 +17,8 @@ export default function Header({ drawerContent, openDrawer }) {
                 <li className={linkStyle}>
                     <Link href='https://www.tada-blog.xyz' target='_blank'>Blog</Link>
                 </li>
-                <li className={`${linkStyle} ${drawerContent === 'resume' && selectedStyle}`} onClick={() => openDrawer('resume')}>
-                    Resume
+                <li className={`${linkStyle} ${drawerContent === 'resume' && selectedStyle}`}>
+                    <Link href='https://drive.google.com/file/d/1oKByHsl-jCto6s9glr6Pk53xtvjo5C2w/view?usp=sharing' target='_blank'>Resume</Link>
                 </li>
                 <li className={`${linkStyle} ${drawerContent === 'about' && selectedStyle}`} onClick={() => openDrawer('about')}>
                     About
