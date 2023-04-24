@@ -12,7 +12,7 @@ function MyApp({ Component, pageProps }) {
         <title>Zoe Ferencova</title>
         <meta name="description" content="Portfolio for Zoe Ferencova" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/images/favicon.ico" />
       </Head>
       <Layout>
         <Component {...pageProps} />
