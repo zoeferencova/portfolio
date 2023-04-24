@@ -24,7 +24,7 @@ const slideshowOptions = {
 }
 
 export default function ProjectInfo({ project }) {
-    const buttons = project.links.map(link => <Button key={link.id} text={link.name} icon={link.icon.url} link={link.url} extraClasses='inline-block mr-2 mob:mr-3' dark={link.name === 'Visit'} />);
+    const buttons = project.links.map(link => <Button key={link.id} text={link.name} icon={link.icon.url} link={link.url} extraClasses='inline-block mr-[6px] mob:mr-3' dark={link.name === 'Visit'} />);
     const sectionLabelStyles = 'text-[0.8rem] mob:text-sm text-gray-400 uppercase tracking-[0.07rem] mob:tracking-[0.1rem] mt-10 mob:mt-12'
     const paragraphStyles = 'my-4 mob:my-6 text-mob mob:text-base'
 
