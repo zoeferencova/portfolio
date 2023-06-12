@@ -4,19 +4,19 @@
 
 @font-face {
   font-family: "SF Display";
-  src: url("/fonts/SFPRODISPLAYREGULAR") format("opentype");
+  src: url("../public/fonts/SFPRODISPLAYREGULAR.OTF") format("opentype");
 }
 
 @font-face {
   font-family: "SF Display";
   font-weight: 500;
-  src: url("/fonts/SFPRODISPLAYMEDIUM.OTF") format("opentype");
+  src: url("../public/fonts/SFPRODISPLAYMEDIUM.OTF") format("opentype");
 }
 
 @font-face {
   font-family: "SF Display";
   font-weight: 700;
-  src: url("/fonts/SFPRODISPLAYBOLD.OTF") format("opentype");
+  src: url("../public/fonts/SFPRODISPLAYBOLD.OTF") format("opentype");
 }
 
 * {
